@@ -77,9 +77,9 @@ if __name__ == "__main__":
         api_key = st.text_input('OpenAI API Key:', type="password")
         if api_key:
             os.environ['OPENAI_API_KEY'] = api_key
-        # elif st.secrets["OPENAI_API_KEY"]:
-        #     api_key = st.secrets["OPENAI_API_KEY"]
-        #     os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+        elif st.secrets["OPENAI_API_KEY"]:
+            api_key = st.secrets["OPENAI_API_KEY"]
+            os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
         
         upload_file = st.file_uploader('Upload a file:', type=['pdf', 'docx', 'txt'])
         chunk_size = st.number_input('Chunk size:', min_value=100, max_value=2048, value=512)
