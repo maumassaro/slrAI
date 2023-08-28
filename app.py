@@ -1,7 +1,12 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 import os
+import sqlite3
 
 # loading PDF, DOCX and TXT files as LangChain Documents
 def load_document(file):
